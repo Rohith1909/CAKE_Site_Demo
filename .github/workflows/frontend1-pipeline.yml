@@ -6,8 +6,8 @@ on:
       - main
 
 env:
-  DOCKER_IMAGE: docker.io/arshiya2207/cake-frontend:V2
-  AWS_REGION: us-east-2
+  DOCKER_IMAGE: docker.io/rohith1909/cake-frontend:V2
+  AWS_REGION: us-west-2
 
 jobs:
   build-and-deploy:
