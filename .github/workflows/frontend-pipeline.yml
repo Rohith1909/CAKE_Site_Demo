@@ -31,7 +31,7 @@ jobs:
          projectBaseDir: .
          args: >
           -Dsonar.organization=my-org
-          -Dsonar.projectkey=CAKE_Site_Demo
+          -Dsonar.projectKey=CAKE_Site_Demo
         env:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
