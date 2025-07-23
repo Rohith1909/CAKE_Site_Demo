@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  DOCKER_IMAGE: 7061pallavi/cake-frontend:V3
+  DOCKER_IMAGE: 7061pallavi/cake-frontend:latest
   AWS_REGION: us-east-2
 
 jobs:
@@ -24,6 +24,17 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v2
+        with:
+         projectBaseDir: .
+         args: >
+          -Dsonar.organization=my-org
+          -Dsonar.projectkey=CAKE_Site_Demo
+        env:
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
